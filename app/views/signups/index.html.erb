@@ -3,17 +3,17 @@
 <table>
   <tr>
 	<th>Signup ID</th>
-    <th>Coach name</th>
-    <th>Coach phone</th>
-    <th>Coach email</th>
+    <th>Player name</th>
+    <th>Player phone</th>
+    <th>Player email</th>
   </tr>
 
 <% @signups.each do |signup| %>
   <tr>
     <td><%=h signup.id %></td>
-    <td><%=h signup.coach_name %></td>
-    <td><%=h signup.coach_phone %></td>
-    <td><%=h signup.coach_email %></td>
+    <td><%=h signup.player1_name %></td>
+    <td><%=h signup.player1_phone %></td>
+    <td><%=h signup.player1_email %></td>
     <td><%= link_to 'Show', signup %></td>
     <td><%= link_to 'Edit', edit_signup_path(signup) %></td>
     <td><%= link_to 'Destroy', signup, :confirm => 'Are you sure?', :method => :delete %></td>

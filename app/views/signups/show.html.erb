@@ -2,27 +2,23 @@
 
 <table class="signup"><tr>
 
-<td width=220px><h2>Team</h2>
-<%=h @signup.team_sex %>
-</td>
-
-<td><h2>Coach</h2>
+<td><h2>Player</h2>
 <table>
 	<tr>
 		<td>Name</td>
-		<td><%=h @signup.coach_name %></td>
+		<td><%=h @signup.player1_name %></td>
 	</tr>
 	<tr>
 	  	<td>Phone</td>
-	  	<td><%=h @signup.coach_phone %></td>
+	  	<td><%=h @signup.player1_phone %></td>
 	</tr>
 	<tr>
 	  	<td>Email</td>
-	  	<td><%=h @signup.coach_email %></td>
+	  	<td><%=h @signup.player1_email %></td>
 	</tr>
 	<tr>
 	  	<td>Address</td>
-	  	<td><%=h @signup.coach_address %></td>
+	  	<td><%=h @signup.player1_address %></td>
 	</tr>
 </table>
 </td>
@@ -51,47 +47,6 @@ Address Line 3
 </td>
 
 </tr></table>
-
-<h2>Players</h2>
-<table>
-	<tr>
-		<th>Name</th>
-		<th>Birthday</th>
-		<th>Phone</th>
-		<th>Email</th>
-		<th>Address</th>
-	</tr>
-	<tr>
-  		<td><%=h @signup.player1_name %></td>
-	  	<td><%=h "#{@signup.player1_dob_month}/#{@signup.player1_dob_day}/#{@signup.player1_dob_year}" %></td>
-	  	<td><%=h @signup.player1_address %></td>
-	  	<td><%=h @signup.player1_phone %></td>
-	  	<td><%=h @signup.player1_email %></td>
-	</tr>
-	<tr>
-  		<td><%=h @signup.player2_name %></td>
-	  	<td><%=h "#{@signup.player2_dob_month}/#{@signup.player2_dob_day}/#{@signup.player2_dob_year}" %></td>
-	  	<td><%=h @signup.player2_address %></td>
-	  	<td><%=h @signup.player2_phone %></td>
-	  	<td><%=h @signup.player2_email %></td>
-	</tr>
-	<tr>
-  		<td><%=h @signup.player3_name %></td>
-	  	<td><%=h "#{@signup.player3_dob_month}/#{@signup.player3_dob_day}/#{@signup.player3_dob_year}" %></td>
-	  	<td><%=h @signup.player3_address %></td>
-	  	<td><%=h @signup.player3_phone %></td>
-	  	<td><%=h @signup.player3_email %></td>
-	</tr>
-	<% if !@signup.player4_name.empty? %>
-	<tr>
-  		<td><%=h @signup.player4_name %></td>
-	  	<td><%=h "#{@signup.player4_dob_month}/#{@signup.player4_dob_day}/#{@signup.player4_dob_year}" %></td>
-	  	<td><%=h @signup.player4_address %></td>
-	  	<td><%=h @signup.player4_phone %></td>
-	  	<td><%=h @signup.player4_email %></td>
-	</tr>
-	<% end %>
-</table>
 
 <% if @auth_global %>
 	<%= link_to 'Edit', edit_signup_path(@signup) %> |
