@@ -55,7 +55,9 @@ private
   end
   
   def is_valid_coupon
-    errors.add(:coupon_code, 'invalid')
+    if (coupon_discount > 0)
+      errors.add(:coupon_code, 'invalid')
+    end
   end
   
 end
