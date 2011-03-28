@@ -33,7 +33,7 @@ class Signup < ActiveRecord::Base
   end
   
   def coupon_discount
-    if (not coupon_code.blank? and valid_coupons.index(coupon_code.downcase) != nil)
+    if (not coupon_code.blank? and valid_coupons.index(coupon_code.strip.downcase) != nil)
       return 10
     end
     0
@@ -55,7 +55,7 @@ private
   end
   
   def is_valid_coupon
-    if (coupon_discount > 0)
+    if (coupon_discount <= 0)
       errors.add(:coupon_code, 'invalid')
     end
   end
