@@ -51,7 +51,7 @@ private
   end
 
   def valid_coupons
-    [ "ACAD11" ]
+    [ "acad11" ]
   end
   
   def is_valid_coupon
