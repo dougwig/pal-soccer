@@ -35,6 +35,11 @@
 	  	<td><%= form.label "T-Shirt Size" %></td>
 	  	<td><%= form.select :tshirt_size, @signup.TSHIRT_SIZES, :include_blank => true, :title => 'Select a Size'  %></td>
 	</tr>
+
+	<tr>
+	  	<td><%= form.label "Coupon Code" %></td>
+	  	<td><%= form.text_field :coupon_code %></td>
+	</tr>
 	
 	
 </table>

@@ -4,6 +4,7 @@ class Signup < ActiveRecord::Base
   validates_presence_of :player1_name, :player1_dob_month, :player1_dob_day, :player1_dob_year
   validates_presence_of :player1_email, :player1_phone, :player1_address
   validates_presence_of :location, :tshirt_size
+  validate :is_valid_coupon
   
   def TEAM_SEXES
     [ "Boys", "Girls" ]
@@ -31,10 +32,30 @@ class Signup < ActiveRecord::Base
     [ "Heroes Park", "JBIL Park" ]
   end
   
+  def coupon_discount
+    if (not coupon_code.blank? and valid_coupons.index(coupon_code.downcase) != nil)
+      return 10
+    end
+    0
+  end
+  
+  def price
+    75 - coupon_discount
+  end
+  
 private
   def generate_auth_token
     if (self.auth_token.blank?)
       self.auth_token = ::ActiveSupport::SecureRandom.base64(15).tr('+/=', '-_ ').strip.delete("\n")
     end
   end
+
+  def valid_coupons
+    [ "ACAD11" ]
+  end
+  
+  def is_valid_coupon
+    errors.add(:coupon_code, 'invalid')
+  end
+  
 end
