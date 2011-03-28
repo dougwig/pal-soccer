@@ -10,9 +10,9 @@
 	</tr>
 	<tr>
 		<td><%= form.label "Birthday" %></td>
-		<td><%= form.select :player1_dob_month, @signup.DOB_MONTHS %>
-	  		<%= form.select :player1_dob_day, @signup.DOB_DAYS %>
-	  		<%= form.select :player1_dob_year, @signup.DOB_YEARS %></td>
+		<td><%= form.select :player1_dob_month, @signup.DOB_MONTHS, :include_blank => true %>
+	  		<%= form.select :player1_dob_day, @signup.DOB_DAYS, :include_blank => true %>
+	  		<%= form.select :player1_dob_year, @signup.DOB_YEARS, :include_blank => true %></td>
 	</tr>
 	<tr>
 	  	<td><%= form.label "Phone" %></td>
@@ -26,6 +26,17 @@
 	  	<td><%= form.label "Address" %></td>
 	  	<td><%= form.text_field :player1_address %></td>
 	</tr>
+
+	<tr>
+	  	<td><%= form.label "Location" %></td>
+	  	<td><%= form.select :location, @signup.LOCATIONS, :include_blank => true, :title => 'Select a Park' %></td>
+	</tr>
+	<tr>
+	  	<td><%= form.label "T-Shirt Size" %></td>
+	  	<td><%= form.select :tshirt_size, @signup.TSHIRT_SIZES, :include_blank => true, :title => 'Select a Size'  %></td>
+	</tr>
+	
+	
 </table>
 </td>
 

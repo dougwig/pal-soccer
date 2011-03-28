@@ -3,19 +3,32 @@ class Signup < ActiveRecord::Base
 
   validates_presence_of :player1_name, :player1_dob_month, :player1_dob_day, :player1_dob_year
   validates_presence_of :player1_email, :player1_phone, :player1_address
+  validates_presence_of :location, :tshirt_size
   
   def TEAM_SEXES
     [ "Boys", "Girls" ]
   end
 
   def DOB_MONTHS
-    [nil] + (1..12).to_a
+    (1..12).to_a
   end
   def DOB_DAYS
-    [nil] + (1..31).to_a
+    (1..31).to_a
   end
   def DOB_YEARS
-    [nil] + (Time.now.year-20..Time.now.year).to_a
+    (Time.now.year-20..Time.now.year).to_a
+  end
+  
+  def TSHIRT_SIZES
+    [ "YS (Youth Small)", 
+      "YM (Youth Medium)", 
+      "YL (Youth Large)", 
+      "YXL (Youth X-Large)", 
+      "AS (Adult Small)", 
+      "AM (Adult Medium)" ]
+  end
+  def LOCATIONS
+    [ "Heroes Park", "JBIL Park" ]
   end
   
 private
