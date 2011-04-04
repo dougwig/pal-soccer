@@ -29,7 +29,7 @@ class Signup < ActiveRecord::Base
       "AM (Adult Medium)" ]
   end
   def LOCATIONS
-    [ "Heroes Park", "JBIL Park" ]
+    [ "Heroes Park", "Mnt View HS" ]
   end
   
   def coupon_discount
