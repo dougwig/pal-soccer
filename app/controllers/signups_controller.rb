@@ -11,6 +11,29 @@ class SignupsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @signups }
+      format.csv do
+        fields = Signup.new.attributes.keys.sort - ["auth_token"]
+        
+        csv_string = FasterCSV.generate do |csv|
+          # header row
+          csv << fields
+
+          # data rows
+          @signups.each do |signup|
+            z = []
+            fields.each do |attr|
+              val = eval "signup.#{attr}"
+              z << val
+            end
+            csv << z
+          end
+        end
+        #logger.info "CSV string = #{csv_string}"
+
+        send_data csv_string,
+            :type => 'text/csv; charset=iso-8859-1; header=present',
+            :disposition => "attachment; filename=signups.csv"
+      end
     end
   end
 
